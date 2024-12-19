@@ -11,7 +11,7 @@ int main(void)
     printf("%i\n", add(x, y));
 }
 
-int add(int a, int b) 
+int add(int a, int b)
 {
     return a + b;
 }
