@@ -1,10 +1,9 @@
-#include <cs50.h>
 #include <string.h>
 #include <stdio.h>
 #include <ctype.h>
 #include <stdlib.h>
 
-int main(int argc, string argv[])
+int main(int argc, char argv[])
 {
     if (argc != 2)
     {
@@ -19,7 +18,7 @@ int main(int argc, string argv[])
             return 2;
         }
     }
-    string plaintext = get_string("plaintext: ");
+    char plaintext[] = "opa";
     printf("ciphertext: ");
     int key = atoi(argv[1]);
     int currentNumber = 0;
@@ -28,10 +27,19 @@ int main(int argc, string argv[])
         currentNumber = (int) plaintext[j] + key;
         if (currentNumber >= 122)
         {
-            currentNumber = 97 + key - (122 - (int) plaintext[j]);
+            currentNumber = 97 + key - (122 - (int) plaintext[j]) - 1;
+            printf("%c", currentNumber);
         }
         else if (currentNumber >= 90 && (plaintext[j] >= 'A' && plaintext[j] >= 'Z'))
-        printf("%c", (int) plaintext[j] + atoi(argv[1]));
+        {
+            currentNumber = 65 + key - (90 - (int) plaintext[j]) - 1;
+            printf("%c", currentNumber);
+        }
+        else 
+        {
+            printf("%c", currentNumber);
+        }
+        //printf("%c", (int) plaintext[j] + atoi(argv[1]));
     }
     printf("\n");
 }
