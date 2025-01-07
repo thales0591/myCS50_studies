@@ -1,1 +1,1 @@
-# myCS50_studies
+# myCS50_studies and its exercises
